@@ -1,14 +1,18 @@
-import React from "react";
+import React from 'react';
 import Login from './pages/Login'
-import GlobalStyler from "./styles/GlobalStyler";
+import GlobalStyler from './styles/GlobalStyler';
+import Header from './components/Header'
 
 function App() {
-  return (
-    <main className="ma">
-      <Login />
-      <GlobalStyler />
-    </main>
-  );
+    return (
+        <>
+        <Header />
+        <main className="ma">
+            <Login />
+            <GlobalStyler />
+        </main>
+        </>
+    );
 }
 
 export default App;
