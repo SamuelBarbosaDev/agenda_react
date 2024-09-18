@@ -7,13 +7,13 @@ export default function Header(){
     <HeaderContent>
         <section className="header-content">
             <nav>
-                <a href="">
+                <a href="/">
                     <FaHome size={24}/>
                 </a>
-                <a href="">
+                <a href="/login">
                     <FaUserAlt size={24}/>
                 </a>
-                <a href="">
+                <a href="/asdfsdf">
                     <FaSignInAlt size={24}/>
                 </a>
             </nav>
