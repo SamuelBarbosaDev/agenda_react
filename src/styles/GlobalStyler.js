@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+import 'react-toastify/dist/ReactToastify.css'
 
 export default createGlobalStyle`
 /* Colors */
@@ -67,4 +68,12 @@ main{
   padding: var(--gap-default);
   background-color: var(--color-white);
 }
+
+/* body .Toastify .Toastify__toast-container .Toastify__toast--error .Toastify__toast--success{
+    background: blue;
+}
+
+body .Toastify .Toastify__toast-container .Toastify__toast--error .Toastify__toast--error{
+    background: red;
+} */
 `
