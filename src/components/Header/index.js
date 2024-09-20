@@ -1,22 +1,26 @@
-import React from "react";
-import { FaHome, FaSignInAlt, FaUserAlt } from 'react-icons/fa'
-import { HeaderContent } from "./styled";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { HeaderContent } from './styled';
+import { FaHome, FaSignInAlt, FaUserAlt } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 export default function Header(){
-  return (
+    const botaoClicado = useSelector(state => state.botaoClicado);
+    return (
     <HeaderContent>
         <section className="header-content">
             <nav>
-                <a href="/">
+                <Link href="/">
                     <FaHome size={24}/>
-                </a>
-                <a href="/login">
+                </Link>
+                <Link href="/login">
                     <FaUserAlt size={24}/>
-                </a>
-                <a href="/asdfsdf">
+                </Link>
+                <Link href="/asdfsdf">
                     <FaSignInAlt size={24}/>
-                </a>
+                </Link>
             </nav>
+            <a style={{color: 'white'}}>{botaoClicado ? 'Clicado' : 'Não clicado'}</a>
         </section>
     </HeaderContent>
   )
