@@ -5,18 +5,18 @@ import { FaHome, FaSignInAlt, FaUserAlt } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 
 export default function Header(){
-    const botaoClicado = useSelector(state => state.botaoClicado);
+    const botaoClicado = useSelector(state => state.example.botaoClicado);
     return (
     <HeaderContent>
         <section className="header-content">
             <nav>
-                <Link href="/">
+                <Link to="/">
                     <FaHome size={24}/>
                 </Link>
-                <Link href="/login">
+                <Link to="/login">
                     <FaUserAlt size={24}/>
                 </Link>
-                <Link href="/asdfsdf">
+                <Link to="/asdfsdf">
                     <FaSignInAlt size={24}/>
                 </Link>
             </nav>

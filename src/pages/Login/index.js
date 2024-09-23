@@ -2,6 +2,7 @@ import React from 'react';
 import { Title } from './styled';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
+import * as exampleActions from '../../store/modules/example/actions';
 
 export default function Login(){
     const message = () => {
@@ -14,9 +15,7 @@ export default function Login(){
     function handleClick(e){
         e.preventDefault();
 
-        dispatch({
-            type: 'BOTAO_CLICADO',
-        })
+        dispatch(exampleActions.clicaBotao());
     }
     return (
     <main>
