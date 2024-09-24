@@ -7,13 +7,14 @@ const requisicao = () =>
     new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve();
-        }, 2000);
+        }, 100);
     });
 
 function* exampleRequest(){
     try{
         yield call(requisicao);
         yield put(actions.clicaBotaoSuccess())
+        toast.success('Deu Certo.!.')
     }
     catch{
         toast.error('Deu erro.');
