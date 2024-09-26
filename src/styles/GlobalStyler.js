@@ -60,7 +60,7 @@ main{
 .main-content{
   width: 60rem;
   display: flex;
-  margin: 0 auto;
+  margin: 4rem auto;
   min-height: 80rem;
   align-items: center;
   border-radius: 1.5rem;
