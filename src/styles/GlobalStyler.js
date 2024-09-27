@@ -50,7 +50,7 @@ ul{
 
 /* MAIN */
 main{
-  width: 100vw;
+  max-width: 100vw;
   display: flex;
   min-height: 100vh;
   align-items: center;

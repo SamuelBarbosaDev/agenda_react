@@ -6,7 +6,7 @@ import Aluno from '../pages/Aluno';
 import Fotos from '../pages/Fotos';
 import Alunos from '../pages/Alunos';
 import Register from '../pages/Register';
-import { Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { Switch } from 'react-router-dom';
 
 
 export default function Routes(){
