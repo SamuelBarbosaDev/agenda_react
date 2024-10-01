@@ -1,5 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
-import rootRoducer from './modules/rootRoducer';
+import rootRoducer from './modules/rootReducer';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './modules/rootSaga';
 import { persistStore } from 'redux-persist';

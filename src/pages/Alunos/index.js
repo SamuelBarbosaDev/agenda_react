@@ -3,6 +3,7 @@ import axios from '../../services/axios';
 import { Main, ListaAlunos } from './styled';
 import React, { useEffect, useState } from 'react';
 import { FaEdit, FaWindowClose, FaUserCircle } from 'react-icons/fa'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function Alunos(){
     const [ alunos, setAlunos ] = useState([]);
@@ -39,8 +40,12 @@ export default function Alunos(){
                         </div>
                     </section>
                     <div className='student-buttons'>
-                        <FaEdit className='student-button-edit' />
-                        <FaWindowClose className='student-button-delete' />
+                        <Link to={`/aluno/${aluno.id}/edit`}>
+                            <FaEdit className='student-button-edit' />
+                        </Link>
+                        <Link to={`/aluno/${aluno.id}/delete`}>
+                            <FaWindowClose className='student-button-delete' />
+                        </Link>
                     </div>
                 </li>
             ))}
