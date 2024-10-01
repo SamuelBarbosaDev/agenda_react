@@ -4,9 +4,12 @@ import { Main, ListaAlunos } from './styled';
 import React, { useEffect, useState } from 'react';
 import { FaEdit, FaWindowClose, FaUserCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import Loading from '../../components/Loading';
+
 
 export default function Alunos(){
     const [ alunos, setAlunos ] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         async function getData() {
@@ -17,6 +20,7 @@ export default function Alunos(){
     }, []);
     return (
     <Main>
+        <Loading isLoading={isLoading} />
         <section className="main-content">
         <h1>Alunos</h1>
         <ListaAlunos>

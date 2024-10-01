@@ -3,8 +3,9 @@ import { get } from 'lodash';
 import { isEmail } from 'validator';
 import { Main, Form } from './styled';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/modules/auth/actions';
+import Loading from '../../components/Loading';
 
 
 export default function Login(props){
@@ -13,6 +14,7 @@ export default function Login(props){
     const prevPath = get(props, 'location.state.prevPath', '/');
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('')
+    const isLoading = useSelector(state => state.auth.isLoading)
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -33,6 +35,7 @@ export default function Login(props){
     };
     return (
         <Main>
+            <Loading isLoading={isLoading} />
             <section className="main-content">
                 <h1>Crie sua conta:</h1>
                 <Form onSubmit={handleSubmit}>

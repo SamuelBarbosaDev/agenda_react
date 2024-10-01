@@ -5,11 +5,13 @@ import { isEmail } from 'validator'
 import axios from '../../services/axios';
 import history from '../../services/history';
 import get from 'lodash';
+import Loading from '../../components/Loading';
 
 export default function Register(){
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoading, setLoading] = useState(false);
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -51,6 +53,7 @@ export default function Register(){
 
     return (
         <Main>
+            <Loading isLoading={isLoading} />
             <section className="main-content">
                 <h1>Crie sua conta:</h1>
                 <Form onSubmit={handleSubmit}>
