@@ -6,12 +6,26 @@ import axios from '../../services/axios';
 import history from '../../services/history';
 import get from 'lodash';
 import Loading from '../../components/Loading';
+import {useSelector, useDispatch} from 'react-redux'
+import * as actions from '../../store/modules/auth/actions'
+
 
 export default function Register(){
+    const dispatch = useDispatch();
+    const id = useSelector(state => state.auth.user.id);
+    const nomeStored = useSelector(state => state.auth.user.nome);
+    const emailStored = useSelector(state => state.auth.user.email);
+    const isLoading = useSelector(state => state.auth.isLoading);
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isLoading, setLoading] = useState(false);
+
+    React.useEffect(() => {
+        if(!id) return;
+
+        setNome(nomeStored);
+        setEmail(emailStored);
+    }, [emailStored, id, nomeStored]);
 
     async function handleSubmit(e){
         e.preventDefault();
@@ -28,34 +42,21 @@ export default function Register(){
             toast.error('Email inválido.')
         }
 
-        if(password.length < 6 || password.length > 50){
+        if(!id && password.length < 6 || password.length > 50){
             formErrors = true;
             toast.error('Senha deve ter entre 6 e 50 caracteres.');
         }
 
         if(formErrors) return;
 
-        try{
-            await axios.post('/users/', {
-                nome,
-                email,
-                password,
-            })
-            toast.success('Usuário cadastrado com sucesso.')
-            history.push('/login');
-        }
-        catch (error){
-            const errors = get(error, 'response.data.errors', []);
-
-            errors.map(error => toast.error(error));
-        }
+        dispatch(actions.registerRequest({nome, email, password, id}));
     }
 
     return (
         <Main>
             <Loading isLoading={isLoading} />
             <section className="main-content">
-                <h1>Crie sua conta:</h1>
+                <h1>{id ? 'Editar dados' : 'Crie sua conta:'}</h1>
                 <Form onSubmit={handleSubmit}>
                     <div>
                         <label htmlFor='nome'>Nome:</label>
@@ -86,7 +87,7 @@ export default function Register(){
                             onChange={e => setPassword(e.target.value)}
                         />
                     </div>
-                    <button type='submit'>Enviar</button>
+                    <button type='submit'>{id ? 'Salvar' : 'Criar'}</button>
                 </Form>
             </section>
         </Main>
