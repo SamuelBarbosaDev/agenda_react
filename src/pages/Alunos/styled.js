@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import * as color from '../../config/colors'
+import { Link } from 'react-router-dom';
+import * as color from '../../config/colors';
 
 
 export const Main = styled.main`
@@ -61,4 +62,9 @@ export const ListaAlunos = styled.ul`
         height: 3.6rem;
         border-radius: 2rem;
     }
+`
+
+export const NovoAluno = styled(Link)`
+    display: block;
+    padding: 2rem 0 1rem 0;
 `

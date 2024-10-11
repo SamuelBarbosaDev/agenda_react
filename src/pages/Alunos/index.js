@@ -1,10 +1,10 @@
 import { get } from 'lodash'
 import { toast } from 'react-toastify';
 import axios from '../../services/axios';
-import { Main, ListaAlunos } from './styled';
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Loading from '../../components/Loading';
+import React, { useEffect, useState } from 'react';
+import { Main, ListaAlunos, NovoAluno } from './styled';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import {
     FaEdit,
     FaWindowClose,
@@ -60,6 +60,7 @@ export default function Alunos(){
         <Loading isLoading={isLoading} />
         <section className="main-content">
         <h1>Alunos</h1>
+        <NovoAluno to='/aluno/'>Novo Aluno</NovoAluno>
         <ListaAlunos>
             {alunos.map((aluno, index) => (
                 <li key={String(aluno.id)}>
