@@ -23,7 +23,7 @@ export default function Aluno({ match }){
     const [idade, setIdade] = useState('');
     const [peso, setPeso] = useState('');
     const [altura, setAltura] = useState('');
-    const [foto, setfoto] = useState('');
+    const [foto, setFoto] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -41,6 +41,7 @@ export default function Aluno({ match }){
                 setIdade(data.idade);
                 setPeso(data.peso);
                 setAltura(data.altura);
+                setFoto(Foto);
 
                 setIsLoading(false);
             }
