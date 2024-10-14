@@ -60,7 +60,7 @@ export default function Alunos(){
         <Loading isLoading={isLoading} />
         <section className="main-content">
         <h1>Alunos</h1>
-        <NovoAluno to='/aluno/'>Novo Aluno</NovoAluno>
+        <NovoAluno href='/aluno/'>Novo Aluno</NovoAluno>
         <ListaAlunos>
             {alunos.map((aluno, index) => (
                 <li key={String(aluno.id)}>
@@ -82,12 +82,12 @@ export default function Alunos(){
                         </div>
                     </section>
                     <div className='student-buttons'>
-                        <Link to={`/aluno/${aluno.id}/edit`}>
+                        <a href={`/aluno/${aluno.id}/edit`}>
                             <FaEdit className='student-button-edit' />
-                        </Link>
-                        <Link onClick={handleDeleteAsk} to={`/aluno/${aluno.id}/delete`}>
+                        </a>
+                        <a onClick={handleDeleteAsk} href={`/aluno/${aluno.id}/delete`}>
                             <FaWindowClose className='student-button-delete' />
-                        </Link>
+                        </a>
                         <FaExclamation
                             size={16}
                             display="none"

@@ -2,24 +2,28 @@ import React from 'react';
 import {get} from 'lodash';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { Title, Form } from './styled';
+import { Title, Form, ProfilePicture } from './styled';
+import { Link } from 'react-router-dom';
 import axios from '../../services/axios';
 import {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
 import history from '../../services/history';
 import Loading from '../../components/Loading';
 import { isEmail, isInt, isFloat } from 'validator';
+import { FaUserCircle, FaEdit } from 'react-icons/fa';
 import * as actions from '../../store/modules/auth/actions';
+
 
 export default function Aluno({ match }){
     const dispatch = useDispatch();
-    const id = get(match, 'params.id', 0);
+    const id = get(match, 'params.id', '');
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
     const [idade, setIdade] = useState('');
     const [peso, setPeso] = useState('');
     const [altura, setAltura] = useState('');
+    const [foto, setfoto] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -140,6 +144,17 @@ export default function Aluno({ match }){
             <Loading isLoading={isLoading} />
 
             <Title>{id ? 'Editar Aluno' : 'Novo Aluno'}</Title>
+
+            {
+                id && (
+                    <ProfilePicture>
+                        {foto ? <img src={foto} alt={nome} /> : <FaUserCircle size={180} />}
+                        <a href={`/fotos/${id}`}>
+                            <FaEdit size={24} />
+                        </a>
+                    </ProfilePicture>
+                )
+            }
 
             <Form onSubmit={handleSubmit}>
                 <div>

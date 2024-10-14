@@ -41,3 +41,33 @@ export const Form = styled.form`
        border-color: ${color.color_2};
     }
 `;
+
+export const ProfilePicture = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 2rem;
+    position: relative;
+    margin-top: 2rem;
+
+    img{
+        width: 18rem;
+        height: 18rem;
+        border-radius: 50%;
+    }
+
+    a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        position: absolute;
+        bottom: 0;
+        color: ${color.color_white};
+        background: ${color.color_2};
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 50%;
+    }
+`
+

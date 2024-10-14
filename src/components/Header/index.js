@@ -25,20 +25,20 @@ export default function Header(){
     <HeaderContent>
         <section className="header-content">
             <nav>
-                <Link to="/">
+                <a href="/">
                     <FaHome size={24}/>
-                </Link>
-                <Link to="/register">
+                </a>
+                <a href="/register">
                     <FaUserAlt size={24}/>
-                </Link>
+                </a>
                 { isLoggedIn ? (
-                    <Link onClick={handleLogout} to="/logout">
+                    <a onClick={handleLogout} href="/logout">
                         <FaPowerOff size={24}/>
-                    </Link>
+                    </a>
                 ) : (
-                    <Link to="/login">
+                    <a href="/login">
                         <FaSignInAlt size={24}/>
-                    </Link>
+                    </a>
                 )}
 
                 {isLoggedIn && <FaCircle size={24} color='#66ff33'/>}

@@ -64,7 +64,7 @@ export const ListaAlunos = styled.ul`
     }
 `
 
-export const NovoAluno = styled(Link)`
+export const NovoAluno = styled.a`
     display: block;
     padding: 2rem 0 1rem 0;
 `
